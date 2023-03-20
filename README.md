@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # TO DO APPLICATION 
 
 This app helps users to track the to dos.
@@ -22,3 +23,7 @@ node app
 
 - express 
 - pug
+=======
+# Web-Technologies
+This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service
+>>>>>>> origin/main
