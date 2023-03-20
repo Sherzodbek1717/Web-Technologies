@@ -57,6 +57,9 @@ box-sizing: border-box;
 }
 
 .todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px;
     font-size: 1.5rem;
     border-bottom: 1px dotted #eee;
@@ -93,4 +96,13 @@ box-sizing: border-box;
     color: green;
     border-color: green;
     
+}
+
+.delete {
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    background: tomato;
+    color: #fff;
+
 }
