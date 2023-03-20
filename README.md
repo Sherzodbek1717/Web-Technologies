@@ -7,7 +7,7 @@ This app helps users to track the to dos.
 1.Download the source code 
 
 ```bash
-git clone [URL TO GITHUB REPO]
+git clone https://github.com/Sherzodbek1717/Web-Technologies.git
 ```
 or just download the *.zip file 
 
@@ -23,6 +23,11 @@ node app
 
 - express 
 - pug
+
+
+#### Link to Github repo
+
+https://github.com/Sherzodbek1717/Web-Technologies.git
 =======
 # Web-Technologies
 This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service
