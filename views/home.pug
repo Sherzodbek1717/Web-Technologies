@@ -18,7 +18,7 @@ block number1
     if todos.length
       each todo in todos 
         p.todo 
-          span #{ todo.description }
+          a(href=`/${ todo.id}/update`) #{ todo.description }
           a.delete(href=`/${ todo.id }/delete`) Delete
 
     else 
