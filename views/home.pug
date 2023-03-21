@@ -2,11 +2,11 @@ extends layout.pug
 
 block number1
   if error 
-    p.error please fill the input 
-
-  if success  
+    p.error Please fill the input
+    
+  if success 
     p.success Good job
-  
+     
   if deleted
     p.success Deleted
 
@@ -18,7 +18,11 @@ block number1
     if todos.length
       each todo in todos 
         p.todo 
-          a(href=`/${ todo.id}/update`) #{ todo.description }
+          if todo.done
+            a.done(href=`/${ todo.id}/update`) #{ todo.description }
+          else 
+            a.undone(href=`/${ todo.id}/update`) #{ todo.description }
+
           a.delete(href=`/${ todo.id }/delete`) Delete
 
     else 

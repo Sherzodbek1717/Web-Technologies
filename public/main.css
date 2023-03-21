@@ -106,3 +106,17 @@ box-sizing: border-box;
     color: #fff;
 
 }
+
+
+.done {
+    text-decoration: line-through;
+    
+
+}
+
+.done, 
+.undone {
+    text-decoration: none;
+    color: black;
+
+}
