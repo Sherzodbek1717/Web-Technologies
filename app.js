@@ -109,3 +109,9 @@ function id () {
 }
 
 
+// all notes section 
+
+app.get('/all_medicines', (req, res) => {
+    const notes = ['some awesome medicine 1', 'Some awesome medicine 2', ' Some awesome medicine 3']
+    res.render('all_medicines')
+})

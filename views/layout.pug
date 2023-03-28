@@ -1,14 +1,19 @@
 doctype html
 html(lang="en")
   head
-    title To Do App
+    title Medicines Registry App
     link(rel='stylesheet', href='/static/main.css')
     link(rel='preconnect', href='https://fonts.googleapis.com')
     link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
     link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap')
   body 
     div.wrapper 
-      h1.logo To Do App
+      h1.logo Medicines Registry App
+    ul 
+      li 
+        a(href="/all_medicines") All medicines 
+      li 
+        a(href="/archive") Archive
 
     block number1
 
