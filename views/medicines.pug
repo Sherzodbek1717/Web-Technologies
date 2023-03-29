@@ -1,0 +1,10 @@
+extends layout
+
+block medicine1
+    h1.pageTitle All medicines
+
+    each medicine in medicines
+        div.medicine_wrapper
+            a.allMedicine(href="#")= medicine
+            a.delete(href="#") Delete
+

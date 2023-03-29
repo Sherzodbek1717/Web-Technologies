@@ -1,6 +1,6 @@
 extends layout.pug
 
-block number1
+block medicine1
   if error 
     p.error Please fill the input
     
@@ -10,9 +10,9 @@ block number1
   if deleted
     p.success Deleted
 
-  form.form(action='/add', method='POST')
-    input.input(type='text', placeholder='add your to do description here...', name='todo')
-    button.btn Add
+  form.action(action='/add', method='POST')
+    input.text(type='text', placeholder='add your new medicine here...', name='todo')
+    button.btnAdd Add new
 
   div.todos 
     if todos.length

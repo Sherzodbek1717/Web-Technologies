@@ -9,25 +9,25 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 }
-.wrapper {
+.container {
     max-width: 800px;
     margin: 50px auto;
 }
 
-.logo {
+.medicine {
     text-align: center;
     font-size: 4rem;
 
 }
 
-.form {
+.action {
     width: 100%;
     display: flex;
     justify-content: space-between;
 
 }
 
-.input {
+.text {
     display: inline-block;
     padding: 10px;
     font-size: 1.5rem;
@@ -37,7 +37,7 @@ box-sizing: border-box;
     
 }
 
-.btn {
+.btnAdd {
     display: inline-block;
     padding: 10px 20px;
     font-size: 1.5rem;
@@ -119,4 +119,25 @@ box-sizing: border-box;
     text-decoration: none;
     color: black;
 
+}
+
+.note_container
+{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    padding: 10px;
+}
+
+.allNote {
+   font-size: 1.3rem;
+
+
+}
+
+.delete {
+    background-color: tomato;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #fff;
 }

@@ -1,117 +1,126 @@
-// third party libs 
-const express = require('express')
-const app = express()
-app.use(express.urlencoded({ extended: false }))
+// third party libs
+const express = require("express");
+const app = express();
+app.use(express.urlencoded({ extended: false }));
 
+// node libs
+const fs = require("fs");
+const PORT = 8080;
 
-// node libs 
-const fs = require('fs')
-const PORT = 8080
-
-app.set('view engine', 'pug')
-app.set('views', './views')
-app.use('/static', express.static('public')) // assets
-app.use(express.urlencoded({ extended: false}))
+app.set("view engine", "pug");
+app.set("views", "./views");
+app.use("/static", express.static("public")); // assets
+app.use(express.urlencoded({ extended: false }));
 
 // localhost:8080
-app.get('/', (req, res) => {
-    fs.readFile('./data/todos.json', (err, data) =>{
-        if (err) throw err
-        const todos = JSON.parse(data)
+app.get("/", (req, res) => {
 
-        res.render('home', {todos: todos})
-    })
-})
+  console.log(req.query.added);
 
-app.post('/Add', (req, res) => {
-    const formData = req.body
+  fs.readFile("./data/medicines.json", (err, data) => {
+    if (err) throw err;
+    const todos = JSON.parse(data);
 
-    if (formData.todo.trim() == '') {
-        fs.readFile('./data/todos.json', (err, data) =>{
-            if (err) throw err 
-            const todos = JSON.parse(data)
-            res.render('home', {error: true, todos: todos})
+    res.render("home", { todos: todos, success: req.query.added });
+  });
+});
 
-        })
-    }
-    else {
-        fs.readFile('./data/todos.json', (err, data) => {
-            if (err) throw err
-            
-            const todos = JSON.parse(data)
+app.post("/add", (req, res) => {
+  const formData = req.body;
 
-            const todo = {
-                id: id(), 
-                description: formData.todo,
-                done: false 
-            }
+  if (formData.todo.trim() == "") {
+    fs.readFile("./data/medicines.json", (err, data) => {
+      if (err) throw err;
+      const todos = JSON.parse(data);
+      res.render("home", { error: true, todos: todos });
+    });
+  } else {
+    fs.readFile("./data/medicines.json", (err, data) => {
+      if (err) throw err;
 
-            todos.push(todo)
+      const todos = JSON.parse(data);
 
-            fs.writeFile('./data/todos.json', JSON.stringify(todos), (err) => {
-                if (err) throw err 
+      const todo = {
+        id: id(),
+        description: formData.todo,
+        done: false,
+      };
 
-                res.redirect('/')
-            })
-        })
-    }
-})
+      todos.push(todo);
+
+      fs.writeFile("./data/medicines.json", JSON.stringify(todos), (err) => {
+        if (err) throw err;
+
+        res.redirect("/?added=true");
+      });
+    });
+  }
+});
 
 app.listen(PORT, (err) => {
-    if (err) throw err
-    console.log('This app is running on port ' + PORT)
-})
+  if (err) throw err;
+  console.log("This app is running on port " + PORT);
+});
 
-app.get('/:id/delete', (req, res) => {
-    const id = req.params.id
+app.get("/:id/delete", (req, res) => {
+  const id = req.params.id;
 
-    fs.readFile('./data/todos.json', (err, data) => {
-        if (err) throw err
-        const todos = JSON.parse(data)
+  fs.readFile("./data/medicines.json", (err, data) => {
+    if (err) throw err;
+    const todos = JSON.parse(data);
 
-        const filteredTodos = todos.filter(todo => todo.id !=id)
+    const filteredTodos = todos.filter((todo) => todo.id != id);
 
-        fs.writeFile('./data/todos.json', JSON.stringify(filteredTodos), (err) => {
-            if (err) throw err
-            res.render('home', { todos: filteredTodos, delete: true })
-        })
-    })
-})
+    fs.writeFile("./data/medicines.json", JSON.stringify(filteredTodos), (err) => {
+      if (err) throw err;
+      res.render("home", { todos: filteredTodos, delete: true });
+    });
+  });
+});
 
-app.get('/:id/update', (req, res) => {
-    const id = req.params.id
+app.get("/:id/update", (req, res) => {
+  const id = req.params.id;
 
-    fs.readFile('./data/todos.json', (err, data) => {
-        if (err) throw err
+  fs.readFile("./data/medicines.json", (err, data) => {
+    if (err) throw err;
 
-        const todos = JSON.parse(data)
-        const todo = todos.filter(todo => todo.id == req.params.id)[0]
+    const todos = JSON.parse(data);
+    const todo = todos.filter((todo) => todo.id == req.params.id)[0];
 
-        const todoIdx = todos.indexOf(todo)
-        const splicedTodo = todos.splice(todoIdx, 1)[0]
+    const todoIdx = todos.indexOf(todo);
+    const splicedTodo = todos.splice(todoIdx, 1)[0];
 
-        splicedTodo.done = true
-        
-        todos.push(splicedTodo)
+    splicedTodo.done = true;
 
-        fs.writeFile('./data/todos.json', JSON.stringify(todos), (err) => {
-            if (err) throw err
+    todos.push(splicedTodo);
 
-            res.render('home', { todos: todos })
-        })
-    })
-    })
+    fs.writeFile("./data/medicines.json", JSON.stringify(todos), (err) => {
+      if (err) throw err;
 
-    
+      res.render("home", { todos: todos });
+    });
+  });
+});
 
-function id () {
-    return '_' + Math.random().toString(36).substr(2.9);
+function id() {
+  return "_" + Math.random().toString(36).substr(2.9);
 }
 
+// all notes section
 
-// all notes section 
+// app.get("/all_medicines", (req, res) => {
+//   const notes = [
+//     "some awesome medicine 1",
+//     "Some awesome medicine 2",
+//     " Some awesome medicine 3",
+//   ];
+//   res.render("all_medicines");
+// });
 
-app.get('/all_medicines', (req, res) => {
-    const notes = ['some awesome medicine 1', 'Some awesome medicine 2', ' Some awesome medicine 3']
-    res.render('all_medicines')
-})
+
+const medicines = ["some awesome medicine 1", "some awesome medicine 2"]
+
+app.get("/medicines", (req, res) => {
+  res.render("medicines", { medicines: medicines });
+});
+
