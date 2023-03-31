@@ -11,6 +11,7 @@ app.set("view engine", "pug");
 app.set("views", "./views");
 app.use("/static", express.static("public")); // assets
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json())
 
 // localhost:8080
 app.get("/", (req, res) => {
@@ -131,3 +132,29 @@ const medicines = ["some awesome medicine 1", "some awesome medicine 2"];
 app.get("/medicines", (req, res) => {
   res.render("medicines", { medicines: medicines });
 });
+
+
+// delete button for all medicines
+
+// app.get("/:id/delete", (req, res) => {
+//   const id = req.params.id;
+
+//   fs.readFile("./data/medicines.json", (err, data) => {
+//     if (err) throw err;
+//     const medicines = JSON.parse(data);
+
+//     const filteredMedicines = medicines.filter((medicine) => medicine.id != id);
+
+//     fs.writeFile(
+//       "./data/medicines.json",
+//       JSON.stringify(filteredMedicines),
+//       (err) => {
+//         if (err) throw err;
+//         res.render("medicines", { medicines: filteredMedicines, delete: true });
+//       }
+//     );
+//   });
+// });
+
+
+let medicines = getAll ("medicines")

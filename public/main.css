@@ -1,3 +1,5 @@
+/* Body styles */
+
 :root {
   font-family: "Open Sans", sans-serif;
 }
@@ -105,7 +107,7 @@
   color: black;
 }
 
-.note_container {
+.container {
   display: flex;
   justify-content: space-between;
   width: 60%;
@@ -122,3 +124,102 @@
   padding: 5px 10px;
   color: #fff;
 }
+
+.delete {
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 5px 10px;
+  background: tomato;
+  color: #fff;
+  justify-content: space-between;
+}
+
+.allMedicine {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  padding: 10px;
+}
+
+
+
+/* Header styles */
+header.navbar {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Container styles */
+div.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Heading styles */
+h1.medicine {
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Navigation styles */
+ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+li {
+  margin: 0 10px;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #666;
+}
+
+/* Medicine block styles */
+.medicine-block {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.medicine-block h2 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.medicine-block p {
+  font-size: 16px;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+.medicine-block button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.medicine-block button:hover {
+  background-color: #666;
+}
+

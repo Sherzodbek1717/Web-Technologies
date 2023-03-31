@@ -5,6 +5,10 @@ block medicine1
 
     each medicine in medicines
         div.medicine_wrapper
-            a.allMedicine(href="#")= medicine
-            a.delete(href="#") Delete
+            .items
+                a.allMedicine(href="#")= medicine
+            
+            
+            .all 
+                a.delete(href="#") Delete
 
