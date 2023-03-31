@@ -14,45 +14,48 @@ app.use(express.urlencoded({ extended: false }));
 
 // localhost:8080
 app.get("/", (req, res) => {
-
   console.log(req.query.added);
 
   fs.readFile("./data/medicines.json", (err, data) => {
     if (err) throw err;
-    const todos = JSON.parse(data);
+    const medicines = JSON.parse(data);
 
-    res.render("home", { todos: todos, success: req.query.added });
+    res.render("page1", { medicines: medicines, success: req.query.added });
   });
 });
 
 app.post("/add", (req, res) => {
   const formData = req.body;
 
-  if (formData.todo.trim() == "") {
+  if (formData.medicine.trim() == "") {
     fs.readFile("./data/medicines.json", (err, data) => {
       if (err) throw err;
-      const todos = JSON.parse(data);
-      res.render("home", { error: true, todos: todos });
+      const medicines = JSON.parse(data);
+      res.render("page1", { error: true, medicines: medicines });
     });
   } else {
     fs.readFile("./data/medicines.json", (err, data) => {
       if (err) throw err;
 
-      const todos = JSON.parse(data);
+      const medicines = JSON.parse(data);
 
-      const todo = {
+      const medicine = {
         id: id(),
-        description: formData.todo,
+        description: formData.medicine,
         done: false,
       };
 
-      todos.push(todo);
+      medicines.push(medicine);
 
-      fs.writeFile("./data/medicines.json", JSON.stringify(todos), (err) => {
-        if (err) throw err;
+      fs.writeFile(
+        "./data/medicines.json",
+        JSON.stringify(medicines),
+        (err) => {
+          if (err) throw err;
 
-        res.redirect("/?added=true");
-      });
+          res.redirect("/?added=true");
+        }
+      );
     });
   }
 });
@@ -62,19 +65,23 @@ app.listen(PORT, (err) => {
   console.log("This app is running on port " + PORT);
 });
 
-app.get("/:id/delete", (req, res) => {
+app.get("/:id/remove", (req, res) => {
   const id = req.params.id;
 
   fs.readFile("./data/medicines.json", (err, data) => {
     if (err) throw err;
-    const todos = JSON.parse(data);
+    const medicines = JSON.parse(data);
 
-    const filteredTodos = todos.filter((todo) => todo.id != id);
+    const filteredMedicines = medicines.filter((medicine) => medicine.id != id);
 
-    fs.writeFile("./data/medicines.json", JSON.stringify(filteredTodos), (err) => {
-      if (err) throw err;
-      res.render("home", { todos: filteredTodos, delete: true });
-    });
+    fs.writeFile(
+      "./data/medicines.json",
+      JSON.stringify(filteredMedicines),
+      (err) => {
+        if (err) throw err;
+        res.render("page1", { medicines: filteredMedicines, remove: true });
+      }
+    );
   });
 });
 
@@ -84,20 +91,22 @@ app.get("/:id/update", (req, res) => {
   fs.readFile("./data/medicines.json", (err, data) => {
     if (err) throw err;
 
-    const todos = JSON.parse(data);
-    const todo = todos.filter((todo) => todo.id == req.params.id)[0];
+    const medicines = JSON.parse(data);
+    const medicine = medicines.filter(
+      (medicine) => medicine.id == req.params.id
+    )[0];
 
-    const todoIdx = todos.indexOf(todo);
-    const splicedTodo = todos.splice(todoIdx, 1)[0];
+    const medicineIdx = medicines.indexOf(medicine);
+    const splicedMedicine = medicines.splice(medicineIdx, 1)[0];
 
-    splicedTodo.done = true;
+    splicedMedicine.done = true;
 
-    todos.push(splicedTodo);
+    medicines.push(splicedMedicine);
 
-    fs.writeFile("./data/medicines.json", JSON.stringify(todos), (err) => {
+    fs.writeFile("./data/medicines.json", JSON.stringify(medicines), (err) => {
       if (err) throw err;
 
-      res.render("home", { todos: todos });
+      res.render("page1", { medicines: medicines });
     });
   });
 });
@@ -117,10 +126,8 @@ function id() {
 //   res.render("all_medicines");
 // });
 
-
-const medicines = ["some awesome medicine 1", "some awesome medicine 2"]
+const medicines = ["some awesome medicine 1", "some awesome medicine 2"];
 
 app.get("/medicines", (req, res) => {
   res.render("medicines", { medicines: medicines });
 });
-

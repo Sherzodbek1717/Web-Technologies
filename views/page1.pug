@@ -1,0 +1,30 @@
+extends main.pug
+
+block medicine1
+  if error 
+    p.error Dear user please fill out the input!
+    
+  if success 
+    p.success New medicine added, thank you!
+     
+  if removed
+    p.success removed
+
+  form.action(action='/add', method='POST')
+    input.text(type='text', placeholder='add your new medicine here...', name='medicine')
+    button.btnAdd Add new
+
+  div.medicines
+    if medicines.length
+      each medicine in medicines 
+        p.medicine 
+          if medicine.finished
+            a.finished(href=`/${ medicine.id}/update`) #{ medicine.description }
+          else 
+            a.unfinished(href=`/${ medicine.id}/update`) #{ medicine.description }
+
+          a.remove(href=`/${ medicine.id }/remove`) remove
+
+    else 
+      p.medicine No any medicine available 
+

@@ -1,143 +1,124 @@
 :root {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
-
-
 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .container {
-    max-width: 800px;
-    margin: 50px auto;
+  max-width: 800px;
+  margin: 50px auto;
 }
 
 .medicine {
-    text-align: center;
-    font-size: 4rem;
-
+  text-align: center;
+  font-size: 4rem;
 }
 
 .action {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .text {
-    display: inline-block;
-    padding: 10px;
-    font-size: 1.5rem;
-    width: 80%;
-    border: 1px solid #ccc;
-    font-family: inherit;
-    
+  display: inline-block;
+  padding: 10px;
+  font-size: 1.5rem;
+  width: 80%;
+  border: 1px solid #ccc;
+  font-family: inherit;
 }
 
 .btnAdd {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1.5rem;
-    width: 18%;
-    border: none;
-    background: blue;
-    color: #fff;
-    background: blue;
-    color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  width: 18%;
+  border: none;
+  background: blue;
+  color: #fff;
+  background: blue;
+  color: #fff;
 }
 
-.todos {
-    margin-top: 25px;
-    border: 1px solid #ccc;
-    padding: 10px;
-
+.medicines {
+  margin-top: 25px;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 
-.todo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    font-size: 1.5rem;
-    border-bottom: 1px dotted #eee;
-
-
-
+.medicine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: 1.5rem;
+  border-bottom: 1px dotted #eee;
 }
 
-.todo:last-child {
-    border-bottom: none;
+.medicine:last-child {
+  border-bottom: none;
 }
 
-.todo:hover {
-    background: #eee;
-
+.medicine:hover {
+  background: #eee;
 }
 
-.error, success {
-    text-align: center;
-    font-size: 1.4rem;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 15px;
-
+.error,
+.success {
+  text-align: center;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 15px;
 }
 
-.error {
-    color: red;
-    border-color: red;
-
+.error,
+.success {
+  color: red;
+  border-color: red;
 }
 
 .success {
-    color: green;
-    border-color: green;
-    
+  color: green;
+  border-color: green;
 }
 
-.delete {
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 5px 10px;
-    background: tomato;
-    color: #fff;
-
+.remove {
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 5px 10px;
+  background: tomato;
+  color: #fff;
 }
 
-
-.done {
-    text-decoration: line-through;
-    
-
+.finished {
+  text-decoration: line-through;
 }
 
-.done, 
-.undone {
-    text-decoration: none;
-    color: black;
-
+.finished,
+.unfinished {
+  text-decoration: none;
+  color: black;
 }
 
-.note_container
-{
-    display: flex;
-    justify-content: space-between;
-    width: 60%;
-    padding: 10px;
+.note_container {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  padding: 10px;
 }
 
 .allNote {
-   font-size: 1.3rem;
-
-
+  font-size: 1.3rem;
 }
 
-.delete {
-    background-color: tomato;
-    display: inline-block;
-    padding: 5px 10px;
-    color: #fff;
+.remove {
+  background-color: tomato;
+  display: inline-block;
+  padding: 5px 10px;
+  color: #fff;
 }
