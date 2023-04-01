@@ -157,4 +157,4 @@ app.get("/medicines", (req, res) => {
 // });
 
 
-let medicines = getAll ("medicines")
+// let medicines = getAll ("medicines")
