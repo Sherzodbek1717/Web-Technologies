@@ -11,9 +11,19 @@ app.set("view engine", "pug");
 app.set("views", "./views");
 app.use("/static", express.static("public")); // assets
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json())
+app.use(express.json());
 
 // localhost:8080
+
+const soldItems = ["Item 1", "Item 2", "Item 3"];
+
+
+app.get("/soldItems", (req, res) => {
+  const soldItems = ["Item 1", "Item 2", "Item 3"];
+  res.render("soldItems", { soldItems: soldItems });
+});
+
+
 app.get("/", (req, res) => {
   console.log(req.query.added);
 
@@ -133,7 +143,6 @@ app.get("/medicines", (req, res) => {
   res.render("medicines", { medicines: medicines });
 });
 
-
 // delete button for all medicines
 
 // app.get("/:id/delete", (req, res) => {
@@ -156,5 +165,6 @@ app.get("/medicines", (req, res) => {
 //   });
 // });
 
-
 // let medicines = getAll ("medicines")
+
+//
