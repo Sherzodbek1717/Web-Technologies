@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # TO DO APPLICATION 
 
-This app helps users to track the to dos.
+This app helps users to track the medicines.
 
 #### Instructions 
 1.Download the source code 

@@ -124,7 +124,7 @@
   padding: 5px 10px;
   color: #fff;
 }
-
+/*
 .delete {
   text-decoration: none;
   font-size: 1rem;
@@ -132,7 +132,10 @@
   background: tomato;
   color: #fff;
   justify-content: space-between;
+  display: inline-block;
+  justify-content: space-between;
 }
+*/
 
 .allMedicine {
   display: flex;
@@ -140,8 +143,6 @@
   width: 60%;
   padding: 10px;
 }
-
-
 
 /* Header styles */
 header.navbar {
@@ -223,3 +224,40 @@ a:hover {
   background-color: #666;
 }
 
+.pageTitle {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.medicine_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.items {
+  flex-grow: 1;
+}
+
+.all {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.delete {
+  color: #fff;
+  background-color: #f44336;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete:hover {
+  background-color: #d32f2f;
+}
