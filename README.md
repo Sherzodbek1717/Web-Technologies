@@ -28,6 +28,12 @@ node app
 #### Link to Github repo
 
 https://github.com/Sherzodbek1717/Web-Technologies.git
+
+#### Link to Glitch 
+
+https://plucky-skitter-environment.glitch.me
+
+
 =======
 # Web-Technologies
 This web application was created to fulfill Web Technology module’s requirements and does not represent an actual company or service
