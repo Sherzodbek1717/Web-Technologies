@@ -261,3 +261,56 @@ a:hover {
 .delete:hover {
   background-color: #d32f2f;
 }
+
+
+/* sold items CSS */ 
+
+/* Add styles to the list */
+ul.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add styles to the list items */
+li.list-item {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Add styles to the delete button */
+button.deleteBtn {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Add hover effect to the delete button */
+button.deleteBtn:hover {
+  background-color: #e53935;
+}
+
+/* Add styles to the page title */
+h1.title {
+  text-align: center;
+  margin: 30px 0;
+}
+
+/* Add styles to the section */
+section.section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+

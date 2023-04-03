@@ -132,34 +132,37 @@ app.get("/medicines", (req, res) => {
   res.render("medicines", { medicines: medicines });
 });
 
-<<<<<<< HEAD
-function goHome() {
-  window.location.href = "/";
-}
-=======
-// delete button for all medicines
+// All medicines javasript 
 
-// app.get("/:id/delete", (req, res) => {
-//   const id = req.params.id;
+const allMedicines = require("fs-extra");
 
-//   fs.readFile("./data/medicines.json", (err, data) => {
-//     if (err) throw err;
-//     const medicines = JSON.parse(data);
+app.get("/", (req, res) => {
+  fs.readFile("./data/medicines.json", (err, data) => {
+    if (err) throw err;
 
-//     const filteredMedicines = medicines.filter((medicine) => medicine.id != id);
+    const medicines = JSON.parse(data);
 
-//     fs.writeFile(
-//       "./data/medicines.json",
-//       JSON.stringify(filteredMedicines),
-//       (err) => {
-//         if (err) throw err;
-//         res.render("medicines", { medicines: filteredMedicines, delete: true });
-//       }
-//     );
-//   });
-// });
+    res.render("medicines", { medicines: medicines });
+  });
+});
 
-// let medicines = getAll ("medicines")
 
-//
->>>>>>> b5cff34647a77cc9d989eaa9ea2874acc1140656
+app.get("/:id/remove", (req, res) => {
+  const id = req.params.id;
+
+  fs.readFile("./data/medicines.json", (err, data) => {
+    if (err) throw err;
+    const medicines = JSON.parse(data);
+
+    const filteredMedicines = medicines.filter((medicine) => medicine.id != id);
+
+    fs.writeFile(
+      "./data/medicines.json",
+      JSON.stringify(filteredMedicines),
+      (err) => {
+        if (err) throw err;
+        res.render("medicines", { medicines: filteredMedicines });
+      }
+    );
+  });
+});

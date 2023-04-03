@@ -1,16 +1,17 @@
 extends main.pug
 
 block medicine1
-  h1 Sold Items
-  table
-    thead
-      tr
-        th Item Name
-        th Quantity Sold
-        th Total Sales
-    tbody
-      each item in items
-        tr
-          td= item.name
-          td= item.quantity
-          td= item.sales
+  section.section.page
+    h1.title Sold Items Page
+
+    if soldItems.length
+      h2 Total items sold: #{soldItems.length}
+      ul.list
+        each item in soldItems
+          li.list-item
+            h2 User sold #{item.name} for #{item.price} dollars
+            div
+              button.delete(data-id= item.id) Delete
+
+    else
+      h4 No items sold
